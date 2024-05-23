@@ -100,6 +100,14 @@ functions:
       outputs: []
       author: nathan+business@prophecy.io
       createdAt: '2022-12-15 18:04:50'
+    businessRules/Rule7_ExcludeFlag:
+      name: Rule7_ExcludeFlag
+      description: Return Exclude = 'Y' is trade_type is 'loan'. Otherwise, 'N'
+      tags: []
+      inputs: []
+      outputs: []
+      author: nathan+business@prophecy.io
+      createdAt: '2022-12-15 18:04:50'
 subgraphs: {}
 sqlModels: {}
 sqlSnapshots: {}

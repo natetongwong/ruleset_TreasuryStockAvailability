@@ -26,3 +26,6 @@ def Rule6_ParseCouponRate(security_name: Column=col("security_name")):
         )\
         .otherwise(lit(None))\
         .alias("coupon_rate")
+
+def Rule7_ExcludeFlag(trade_type: Column=col("TRADE_TYPE")):
+    return when((trade_type == lit("loan")), lit("Y")).otherwise(lit("N")).alias("EXCLUDE")
