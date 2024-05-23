@@ -4,9 +4,11 @@ from pyspark.sql.types import *
 from test_rule.config.ConfigStore import *
 from test_rule.functions import *
 from prophecy.utils import *
+from test_rule.graph import *
 
 def pipeline(spark: SparkSession) -> None:
-    pass
+    df_create_security_dataframe = create_security_dataframe(spark)
+    df_add_rule = add_rule(spark, df_create_security_dataframe)
 
 def main():
     spark = SparkSession.builder\

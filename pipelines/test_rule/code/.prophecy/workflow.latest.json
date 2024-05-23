@@ -77,8 +77,143 @@
     "topLevelPackage" : "test_rule",
     "configurationVersion" : "v2"
   },
-  "connections" : [ ],
-  "processes" : { },
+  "connections" : [ {
+    "id" : "DecSb6uYdVGlXFtC3g3FD$$wWwMgQnv8OfeCSN8hkoJo",
+    "source" : "jCe48XaLs2I8TB-8reMSa$$-yckwHPh7SMu3XgmKdmDZ",
+    "sourcePort" : "dciGZUyUsYg4Ppf6VmlHu$$-BktTFp3_dT5MzM1qABtS",
+    "target" : "aKRiPdFSpqnO6BJUGpI7P$$DIZFS-S3Kz9q5wzKh9ERw",
+    "targetPort" : "WUZoDaEmj35F6I6pE6YZK$$ZX1IwNu0ishzq9S8GWxtG"
+  } ],
+  "processes" : {
+    "jCe48XaLs2I8TB-8reMSa$$-yckwHPh7SMu3XgmKdmDZ" : {
+      "id" : "jCe48XaLs2I8TB-8reMSa$$-yckwHPh7SMu3XgmKdmDZ",
+      "component" : "Script",
+      "metadata" : {
+        "label" : "create_security_dataframe",
+        "slug" : "create_security_dataframe",
+        "x" : -280,
+        "y" : -160,
+        "phase" : 0,
+        "cache" : false,
+        "detailedStats" : false,
+        "isImported" : false
+      },
+      "ports" : {
+        "inputs" : [ ],
+        "outputs" : [ {
+          "id" : "dciGZUyUsYg4Ppf6VmlHu$$-BktTFp3_dT5MzM1qABtS",
+          "slug" : "out0",
+          "schema" : {
+            "type" : "struct",
+            "fields" : [ {
+              "name" : "security_name",
+              "type" : "string",
+              "nullable" : true,
+              "metadata" : {
+                "description" : "",
+                "mappings" : [ ],
+                "tags" : [ ]
+              }
+            } ]
+          },
+          "isStreaming" : false
+        } ],
+        "selectedInputFields" : [ ],
+        "isCustomOutputSchema" : true,
+        "autoUpdateOnRun" : true
+      },
+      "properties" : {
+        "script" : "data = [(\"USDFED 5.82% 0829\",)]\n\n# Define the schema\nschema = StructType([\n    StructField(\"security_name\", StringType(), True)\n])\n\n# Create the DataFrame\nout0 = spark.createDataFrame(data, schema)",
+        "scriptMethodHeader" : "def Script(spark: SparkSession) -> DataFrame:",
+        "scriptMethodFooter" : "    return out0"
+      }
+    },
+    "aKRiPdFSpqnO6BJUGpI7P$$DIZFS-S3Kz9q5wzKh9ERw" : {
+      "id" : "aKRiPdFSpqnO6BJUGpI7P$$DIZFS-S3Kz9q5wzKh9ERw",
+      "component" : "AddRule",
+      "metadata" : {
+        "label" : "add_rule",
+        "slug" : "add_rule",
+        "x" : -120,
+        "y" : -160,
+        "phase" : 0,
+        "cache" : false,
+        "detailedStats" : false,
+        "isImported" : false
+      },
+      "ports" : {
+        "inputs" : [ {
+          "id" : "WUZoDaEmj35F6I6pE6YZK$$ZX1IwNu0ishzq9S8GWxtG",
+          "slug" : "in0",
+          "schema" : {
+            "type" : "struct",
+            "fields" : [ {
+              "name" : "security_name",
+              "type" : "string",
+              "nullable" : true,
+              "metadata" : {
+                "description" : "",
+                "mappings" : [ ],
+                "tags" : [ ]
+              }
+            } ]
+          },
+          "isStreaming" : false
+        } ],
+        "outputs" : [ {
+          "id" : "W6Rt8MxlAyE8TDvigpFTR$$aZsCT725riDyJ0A3Ve3ff",
+          "slug" : "out"
+        } ],
+        "selectedInputFields" : [ ],
+        "isCustomOutputSchema" : false,
+        "autoUpdateOnRun" : false
+      },
+      "properties" : {
+        "importLanguage" : "sql",
+        "importString" : "",
+        "transformations" : [ {
+          "AddRule" : {
+            "expression" : {
+              "format" : "sql",
+              "expression" : "Rule6_ParseCouponRate()"
+            },
+            "param_errors" : [ {
+              "paramName" : "security_name",
+              "hasError" : false
+            } ]
+          },
+          "MissingColumn" : {
+            "sourceColumn" : "",
+            "defaultValue" : {
+              "expression" : "",
+              "format" : "python"
+            }
+          },
+          "DropColumn" : {
+            "sourceColumn" : ""
+          },
+          "kind" : "AddRule",
+          "RenameColumn" : {
+            "sourceColumn" : "",
+            "targetColumn" : ""
+          },
+          "AddReplaceColumn" : {
+            "sourceColumn" : "",
+            "expression" : {
+              "expression" : "",
+              "format" : "python"
+            }
+          }
+        } ],
+        "activeTab" : "transformations",
+        "columnsSelector" : [ ]
+      },
+      "componentInfo" : {
+        "gemId" : "gems/AddRule",
+        "projectName" : "Ruleset_TreasuryStockAvailability"
+      }
+    }
+  },
   "ports" : {
     "inputs" : [ ],
     "outputs" : [ ],

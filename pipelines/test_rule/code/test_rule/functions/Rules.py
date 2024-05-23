@@ -21,7 +21,7 @@ def Rule5_DefaultGL_Level_3(gl_level_3: Column=col("GL_Level_3")):
 
 def Rule6_ParseCouponRate(security_name: Column=col("security_name")):
     return when(
-          security_name.like("%[%]%"),
+          security_name.like("%\\%%"),
           concat(expr("substring(security_name, (locate('%', security_name) - 4), 4)"), lit("%"))
         )\
         .otherwise(lit(None))\
