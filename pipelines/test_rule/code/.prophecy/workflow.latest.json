@@ -12,8 +12,8 @@
     "codeGenConfiguration" : {
       "editableConfig" : true,
       "plibVersion" : {
-        "mavenVersion" : "7.1.100",
-        "pyPiVersion" : "1.8.23"
+        "mavenVersion" : "8.1.4",
+        "pyPiVersion" : "1.9.14"
       }
     },
     "id" : "1",
@@ -24,7 +24,7 @@
       "isFunctionsPackageDirDefined" : true
     },
     "language" : "python",
-    "fabricId" : "117",
+    "fabricId" : "14277",
     "frontEndLanguage" : "sql",
     "mode" : "batch",
     "udfs" : {
@@ -58,11 +58,11 @@
     "buildSystem" : "maven",
     "externalDependencies" : [ ],
     "dependentProjectExternalDependencies" : [ {
-      "projectUID" : "224",
+      "projectUID" : "12654",
       "projectName" : "ProphecySparkBasicsPython",
       "externalDependencies" : [ ]
     }, {
-      "projectUID" : "225",
+      "projectUID" : "12655",
       "projectName" : "ProphecyWarehousePython",
       "externalDependencies" : [ ]
     } ],
