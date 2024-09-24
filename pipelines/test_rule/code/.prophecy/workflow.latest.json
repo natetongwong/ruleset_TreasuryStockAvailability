@@ -24,7 +24,7 @@
       "isFunctionsPackageDirDefined" : true
     },
     "language" : "python",
-    "fabricId" : "14277",
+    "fabricId" : "11613",
     "frontEndLanguage" : "sql",
     "mode" : "batch",
     "udfs" : {
@@ -40,7 +40,16 @@
     "configuration" : {
       "common" : {
         "type" : "record",
-        "fields" : [ ]
+        "fields" : [ {
+          "name" : "Subgraph_1",
+          "kind" : {
+            "type" : "record",
+            "fields" : [ ]
+          },
+          "optional" : false,
+          "isWorkflowNodeConfiguration" : true,
+          "isReferenced" : false
+        } ]
       },
       "oldCommon" : {
         "type" : "record",
@@ -83,6 +92,12 @@
     "sourcePort" : "dciGZUyUsYg4Ppf6VmlHu$$-BktTFp3_dT5MzM1qABtS",
     "target" : "aKRiPdFSpqnO6BJUGpI7P$$DIZFS-S3Kz9q5wzKh9ERw",
     "targetPort" : "WUZoDaEmj35F6I6pE6YZK$$ZX1IwNu0ishzq9S8GWxtG"
+  }, {
+    "id" : "3X29MD3ezNADCvJnEtJvo",
+    "source" : "jCe48XaLs2I8TB-8reMSa$$-yckwHPh7SMu3XgmKdmDZ",
+    "sourcePort" : "dciGZUyUsYg4Ppf6VmlHu$$-BktTFp3_dT5MzM1qABtS",
+    "target" : "JL6TqQ0JrAqPDCSVEEMdw$$q7jnY0Vs5H4mR0F0FiQsX",
+    "targetPort" : "atpRNrvAssAzi7m7lkbME$$OUKI3OnV3viiyO6uuciX2"
   } ],
   "processes" : {
     "jCe48XaLs2I8TB-8reMSa$$-yckwHPh7SMu3XgmKdmDZ" : {
@@ -211,6 +226,154 @@
       "componentInfo" : {
         "gemId" : "gems/AddRule",
         "projectName" : "Ruleset_TreasuryStockAvailability"
+      }
+    },
+    "JL6TqQ0JrAqPDCSVEEMdw$$q7jnY0Vs5H4mR0F0FiQsX" : {
+      "id" : "JL6TqQ0JrAqPDCSVEEMdw$$q7jnY0Vs5H4mR0F0FiQsX",
+      "component" : "Subgraph",
+      "metadata" : {
+        "label" : "Subgraph_1",
+        "slug" : "Subgraph_1",
+        "x" : -120,
+        "y" : 20,
+        "phase" : 0,
+        "cache" : false,
+        "detailedStats" : false,
+        "isImported" : false
+      },
+      "ports" : {
+        "inputs" : [ {
+          "id" : "atpRNrvAssAzi7m7lkbME$$OUKI3OnV3viiyO6uuciX2",
+          "slug" : "in0",
+          "schema" : {
+            "type" : "struct",
+            "fields" : [ {
+              "name" : "security_name",
+              "type" : "string",
+              "nullable" : true,
+              "metadata" : {
+                "description" : "",
+                "mappings" : [ ],
+                "tags" : [ ]
+              }
+            } ]
+          },
+          "isStreaming" : false
+        } ],
+        "outputs" : [ {
+          "id" : "1-y3dLhdexeddhVf1g4jO$$X5ClWuplxPl4jVfVkc9Pc",
+          "slug" : "out0"
+        } ],
+        "selectedInputFields" : [ ],
+        "isCustomOutputSchema" : false,
+        "autoUpdateOnRun" : false
+      },
+      "properties" : {
+        "externalId" : "subgraphs/TreasuryRuleset",
+        "name" : "TreasuryRuleset",
+        "packageName" : "TreasuryRuleset"
+      },
+      "connections" : [ {
+        "id" : "TZ_VEBMMbLK_BHwRBGClE",
+        "source" : "JL6TqQ0JrAqPDCSVEEMdw$$q7jnY0Vs5H4mR0F0FiQsX",
+        "sourcePort" : "atpRNrvAssAzi7m7lkbME$$OUKI3OnV3viiyO6uuciX2",
+        "target" : "XZ4YGbCfIaXN7jOfquYdn$$lDx51li-h3LQwXAIY2yCM",
+        "targetPort" : "2sndA9V_Q7RtO-57yXQpQ$$G-nRKA2SY-kj4VJU1d1kN"
+      }, {
+        "id" : "A_32BnhR8rcHe-qUordvs",
+        "source" : "XZ4YGbCfIaXN7jOfquYdn$$lDx51li-h3LQwXAIY2yCM",
+        "sourcePort" : "R3a8pGmxdPk98-oEr8vTP$$9qifYOr61o5ld8YTK8zs7",
+        "target" : "JL6TqQ0JrAqPDCSVEEMdw$$q7jnY0Vs5H4mR0F0FiQsX",
+        "targetPort" : "1-y3dLhdexeddhVf1g4jO$$X5ClWuplxPl4jVfVkc9Pc"
+      } ],
+      "processes" : {
+        "XZ4YGbCfIaXN7jOfquYdn$$lDx51li-h3LQwXAIY2yCM" : {
+          "id" : "XZ4YGbCfIaXN7jOfquYdn$$lDx51li-h3LQwXAIY2yCM",
+          "component" : "AddRule",
+          "metadata" : {
+            "label" : "add_coupon_rate_rule",
+            "slug" : "add_coupon_rate_rule",
+            "x" : -60,
+            "y" : -40,
+            "phase" : 0,
+            "cache" : false,
+            "detailedStats" : false,
+            "isImported" : false,
+            "comment" : "Applies a coupon rate rule to enhance pricing strategies for customers.",
+            "autoUpdateComment" : true
+          },
+          "ports" : {
+            "inputs" : [ {
+              "id" : "2sndA9V_Q7RtO-57yXQpQ$$G-nRKA2SY-kj4VJU1d1kN",
+              "slug" : "in0",
+              "schema" : {
+                "type" : "struct",
+                "fields" : [ {
+                  "name" : "security_name",
+                  "type" : "string",
+                  "nullable" : true,
+                  "metadata" : {
+                    "description" : "",
+                    "mappings" : [ ],
+                    "tags" : [ ]
+                  }
+                } ]
+              },
+              "isStreaming" : false
+            } ],
+            "outputs" : [ {
+              "id" : "R3a8pGmxdPk98-oEr8vTP$$9qifYOr61o5ld8YTK8zs7",
+              "slug" : "out"
+            } ],
+            "selectedInputFields" : [ ],
+            "isCustomOutputSchema" : false,
+            "autoUpdateOnRun" : false
+          },
+          "properties" : {
+            "importLanguage" : "sql",
+            "importString" : "",
+            "transformations" : [ {
+              "AddRule" : {
+                "expression" : {
+                  "format" : "sql",
+                  "expression" : "Rule6_ParseCouponRate()"
+                },
+                "param_errors" : [ {
+                  "paramName" : "security_name",
+                  "hasError" : false
+                } ]
+              },
+              "MissingColumn" : {
+                "sourceColumn" : "",
+                "defaultValue" : {
+                  "expression" : "",
+                  "format" : "python"
+                }
+              },
+              "DropColumn" : {
+                "sourceColumn" : ""
+              },
+              "kind" : "AddRule",
+              "RenameColumn" : {
+                "sourceColumn" : "",
+                "targetColumn" : ""
+              },
+              "AddReplaceColumn" : {
+                "sourceColumn" : "",
+                "expression" : {
+                  "expression" : "",
+                  "format" : "python"
+                }
+              }
+            } ],
+            "activeTab" : "transformations",
+            "columnsSelector" : [ ]
+          },
+          "componentInfo" : {
+            "gemId" : "gems/AddRule",
+            "projectName" : "Ruleset_TreasuryStockAvailability"
+          }
+        }
       }
     }
   },

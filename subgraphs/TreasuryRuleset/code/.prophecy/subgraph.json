@@ -1,0 +1,127 @@
+{
+  "id" : "JL6TqQ0JrAqPDCSVEEMdw",
+  "component" : "Subgraph",
+  "metadata" : {
+    "label" : "",
+    "slug" : "",
+    "x" : 0,
+    "y" : 0,
+    "phase" : 0,
+    "cache" : false,
+    "detailedStats" : false,
+    "isImported" : false,
+    "configuration" : {
+      "common" : {
+        "type" : "record",
+        "fields" : [ ]
+      }
+    }
+  },
+  "ports" : {
+    "inputs" : [ {
+      "id" : "atpRNrvAssAzi7m7lkbME",
+      "slug" : "in0",
+      "isStreaming" : false
+    } ],
+    "outputs" : [ {
+      "id" : "1-y3dLhdexeddhVf1g4jO",
+      "slug" : "out0",
+      "isStreaming" : false
+    } ],
+    "selectedInputFields" : [ ],
+    "isCustomOutputSchema" : false,
+    "autoUpdateOnRun" : false
+  },
+  "properties" : {
+    "packageName" : "TreasuryRuleset"
+  },
+  "connections" : [ {
+    "id" : "TZ_VEBMMbLK_BHwRBGClE",
+    "source" : "JL6TqQ0JrAqPDCSVEEMdw",
+    "sourcePort" : "atpRNrvAssAzi7m7lkbME",
+    "target" : "XZ4YGbCfIaXN7jOfquYdn",
+    "targetPort" : "2sndA9V_Q7RtO-57yXQpQ"
+  }, {
+    "id" : "A_32BnhR8rcHe-qUordvs",
+    "source" : "XZ4YGbCfIaXN7jOfquYdn",
+    "sourcePort" : "R3a8pGmxdPk98-oEr8vTP",
+    "target" : "JL6TqQ0JrAqPDCSVEEMdw",
+    "targetPort" : "1-y3dLhdexeddhVf1g4jO"
+  } ],
+  "processes" : {
+    "XZ4YGbCfIaXN7jOfquYdn" : {
+      "id" : "XZ4YGbCfIaXN7jOfquYdn",
+      "component" : "AddRule",
+      "metadata" : {
+        "label" : "add_coupon_rate_rule",
+        "slug" : "add_coupon_rate_rule",
+        "x" : -60,
+        "y" : -40,
+        "phase" : 0,
+        "cache" : false,
+        "detailedStats" : false,
+        "isImported" : false,
+        "comment" : "Applies a coupon rate rule to enhance pricing strategies for customers.",
+        "autoUpdateComment" : true
+      },
+      "ports" : {
+        "inputs" : [ {
+          "id" : "2sndA9V_Q7RtO-57yXQpQ",
+          "slug" : "in0"
+        } ],
+        "outputs" : [ {
+          "id" : "R3a8pGmxdPk98-oEr8vTP",
+          "slug" : "out"
+        } ],
+        "selectedInputFields" : [ ],
+        "isCustomOutputSchema" : false,
+        "autoUpdateOnRun" : false
+      },
+      "properties" : {
+        "importLanguage" : "sql",
+        "importString" : "",
+        "transformations" : [ {
+          "AddRule" : {
+            "expression" : {
+              "format" : "sql",
+              "expression" : "Rule6_ParseCouponRate()"
+            },
+            "param_errors" : [ {
+              "paramName" : "security_name",
+              "hasError" : false
+            } ]
+          },
+          "MissingColumn" : {
+            "sourceColumn" : "",
+            "defaultValue" : {
+              "expression" : "",
+              "format" : "python"
+            }
+          },
+          "DropColumn" : {
+            "sourceColumn" : ""
+          },
+          "kind" : "AddRule",
+          "RenameColumn" : {
+            "sourceColumn" : "",
+            "targetColumn" : ""
+          },
+          "AddReplaceColumn" : {
+            "sourceColumn" : "",
+            "expression" : {
+              "expression" : "",
+              "format" : "python"
+            }
+          }
+        } ],
+        "activeTab" : "transformations",
+        "columnsSelector" : [ ]
+      },
+      "componentInfo" : {
+        "gemId" : "gems/AddRule",
+        "projectId" : "27998",
+        "projectName" : "Ruleset_TreasuryStockAvailability"
+      }
+    }
+  }
+}

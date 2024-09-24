@@ -9,6 +9,7 @@ from test_rule.graph import *
 def pipeline(spark: SparkSession) -> None:
     df_create_security_dataframe = create_security_dataframe(spark)
     df_add_rule = add_rule(spark, df_create_security_dataframe)
+    df_Subgraph_1 = Subgraph_1(spark, Config.Subgraph_1, df_create_security_dataframe)
 
 def main():
     spark = SparkSession.builder\

@@ -22,7 +22,8 @@ pipelines:
     datasets:
       inputs: []
       outputs: []
-    subgraphs: []
+    subgraphs:
+    - subgraphs/TreasuryRuleset
     dependencies: {}
 datasets: {}
 templates: {}
@@ -108,7 +109,15 @@ functions:
       outputs: []
       author: nathan+business@prophecy.io
       createdAt: '2022-12-15 18:04:50'
-subgraphs: {}
+subgraphs:
+  subgraphs/TreasuryRuleset:
+    name: TreasuryRuleset
+    description: Series of rules for Treasury Stock Availability
+    author: nathan+westpac@prophecy.io
+    language: python
+    artefactID: ''
+    mode: batch
+    createdAt: '2024-09-24 06:56:22'
 sqlModels: {}
 sqlSnapshots: {}
 sqlTests: {}
